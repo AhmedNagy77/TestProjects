@@ -1,13 +1,32 @@
 const http = require('http');
-const PORT = 3000;
+const express = require('express');
 
-const server = http.createServer((req, res) => {
+const HTTP_PORT = 3000;
+const EXPRESS_PORT = 4000;
+
+// 1. Native HTTP Server Setup
+const nativeServer = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ 
-        message: "Hello from native Node.js running on plain Alpine Linux!" 
+        source: "Native HTTP Module",
+        message: "Hello from plain Node.js!" 
     }));
 });
 
-server.listen(PORT, () => {
-    console.log(`Server is actively running on port ${PORT}`);
+nativeServer.listen(HTTP_PORT, () => {
+    console.log(`[Native] Server running on port ${HTTP_PORT}`);
+});
+
+// 2. Express Framework Server Setup
+const expressApp = express();
+
+expressApp.get('/', (req, res) => {
+    res.json({ 
+        source: "Express Framework",
+        message: "Hello from Express Router!" 
+    });
+});
+
+expressApp.listen(EXPRESS_PORT, () => {
+    console.log(`[Express] Server running on port ${EXPRESS_PORT}`);
 });

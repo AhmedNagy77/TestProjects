@@ -8,8 +8,8 @@ const EXPRESS_PORT = 4000;
 const nativeServer = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ 
-        source: "Native HTTP Module",
-        message: "Hello from plain Node.js!" 
+        source: "Native HTTP ModuleXX",
+        message: "Hello from plain Node.jsXX!" 
     }));
 });
 

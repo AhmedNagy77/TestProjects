@@ -17,6 +17,6 @@ fs.readFile(myArgs[0], 'utf8', (err, data) => {
 
 process.on('uncaughtException', (err) => {
     console.error('Uncaught Exception:', err);
-    // Optionally, you can exit the process or perform cleanup here
+    // Optionally, you can exit tnode console package.jsonhe process or perform cleanup here
     process.exit(1);
 });

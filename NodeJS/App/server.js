@@ -2,6 +2,7 @@ const http = require('http');
 const express = require('express');
 const os = require('os');
 const math = require('./math'); // Importing the math module
+const logger = require('./logger'); // Importing the logger module
 
 const HTTP_PORT = 3000;
 const EXPRESS_PORT = 4000;
@@ -40,6 +41,8 @@ expressApp.get('/', (req, res) => {
     });
 });*/
 
+
+expressApp.use(logger.logger); // Using the logger middleware
 // GET Method: Expects query parameters, e.g., /add?num1=5&num2=10
 expressApp.get('/add', (req, res) => {
     const num1 = parseFloat(req.query.num1);
@@ -70,7 +73,6 @@ expressApp.post('/add', (req, res) => {
     const result = math.add(n1, n2); // Using the add function from math.js
     res.json({ num1: n1, num2: n2, result });
 });
-
 
 expressApp.listen(EXPRESS_PORT, () => {
     console.log(`[Express] Server running on port ${EXPRESS_PORT}`);

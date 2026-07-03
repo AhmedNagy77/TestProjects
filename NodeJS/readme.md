@@ -20,3 +20,7 @@ Invoke-RestMethod -Uri "http://localhost:3000/add" `
   -Method POST `
   -Headers @{"Content-Type" = "application/json"} `
   -Body '{"num1": 15, "num2": 25}'
+
+
+# Allow NPM to run
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser

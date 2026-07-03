@@ -19,7 +19,7 @@ COPY /App/package*.json ./
 RUN npm install --only=production
 
 # Copy your dual-server source code into the container
-COPY /App/server.js .
+COPY /App/ .
 
 # Ensure our non-root user owns the directory paths
 RUN chown -R appuser:appgroup /usr/src/app

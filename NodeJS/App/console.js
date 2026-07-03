@@ -1,11 +1,10 @@
 const fs=require('fs');
-
-
+const {format} = require('date-fns');
 const myArgs = process.argv.slice(2);
 
 console.log('All custom arguments:', myArgs);
 console.log('The first parameter is:', myArgs[0]);
-
+console.log(format(new Date(), 'yyyy-MM-dd HH:mm:ss'));
 
 fs.readFile(myArgs[0], 'utf8', (err, data) => {
     if (err) {
